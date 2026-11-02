@@ -42,7 +42,7 @@ export function DeliveryForm() {
       </p>
       <label>Name<input id="f-name" name="name" autoComplete="name" required aria-invalid={inv("name")} /></label>
       <label>
-        Business name <span className="form-note">(optional)</span>
+        <span>Business name <span className="form-note">(optional)</span></span>
         <input id="f-biz" name="business" autoComplete="organization" />
       </label>
       <label className="full">
@@ -50,7 +50,7 @@ export function DeliveryForm() {
       </label>
       <label>Phone<input id="f-phone" name="phone" type="tel" autoComplete="tel" required aria-invalid={inv("phone")} /></label>
       <label>
-        Email <span className="form-note">(optional)</span>
+        <span>Email <span className="form-note">(optional)</span></span>
         <input id="f-email" name="email" type="email" autoComplete="email" />
       </label>
       <fieldset className="full">

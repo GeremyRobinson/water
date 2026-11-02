@@ -12,10 +12,12 @@
   /* One typeface everywhere: Inter, with the Apple system font as fallback */
   --font:var(--font-inter), -apple-system, BlinkMacSystemFont, "SF Pro Text", "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif;
   --display:var(--font); --body:var(--font); --mono:var(--font);
-  /* Shape rules: 3 radii, 2 control heights */
-  --r-lg:16px;   /* cards, photos, panels, form, diagram */
-  --r-md:10px;   /* inputs, banners, small images */
-  --r-pill:999px;/* buttons and tags only */
+  /* Corner rule: two radii only.
+     --r-lg: containers (cards, panels, the form, the diagram, full-width photos)
+     --r-md: everything that sits inside or is smaller than a container
+             (buttons, tags, inputs, notices, photos in cards and grids) */
+  --r-lg:20px;
+  --r-md:12px;
   --h-btn:44px;  /* every button */
   --h-tag:32px;  /* every tag */
   --gutter-l:max(16px, env(safe-area-inset-left, 0px));
@@ -52,7 +54,7 @@ section{padding-block:clamp(56px,8vw,104px)}
 
 /* Notice + header */
 body::before{content:"";position:fixed;inset:0 0 auto;height:env(safe-area-inset-top,0px);z-index:10;background:var(--surface)}
-.notice{background:var(--ink);color:var(--bg);font-size:.9rem}
+.notice{background:#0d2633;color:#e4f0f1;font-size:.9rem}
 .notice .wrap{padding-block:8px;display:flex;gap:8px 20px;flex-wrap:wrap;justify-content:space-between}
 .notice b{font-weight:600}
 header.site{position:sticky;top:env(safe-area-inset-top,0px);z-index:5;background:color-mix(in srgb,var(--surface) 92%,transparent);backdrop-filter:blur(8px);border-bottom:1px solid var(--line)}
@@ -65,7 +67,7 @@ nav.main{display:flex;gap:4px 18px;flex-wrap:wrap}
 nav.main a{color:var(--ink);text-decoration:none;font-weight:500;font-size:.95rem}
 nav.main a:hover{color:var(--aqua)}
 /* Button: one size everywhere. Filled = main action, outlined (.ghost) = secondary */
-.btn{display:inline-flex;align-items:center;justify-content:center;gap:8px;min-height:var(--h-btn);padding:0 20px;border-radius:var(--r-pill);font-weight:600;line-height:1;white-space:nowrap;text-decoration:none;border:1.5px solid var(--aqua);background:var(--aqua);color:var(--surface);font-family:var(--font);font-size:1rem;cursor:pointer}
+.btn{display:inline-flex;align-items:center;justify-content:center;gap:8px;min-height:var(--h-btn);padding:0 20px;border-radius:var(--r-md);font-weight:600;line-height:1;white-space:nowrap;text-decoration:none;border:1.5px solid var(--aqua);background:var(--aqua);color:var(--surface);font-family:var(--font);font-size:1rem;cursor:pointer}
 .btn.ghost{background:transparent;color:var(--aqua)}
 .btn:hover{filter:brightness(1.08)}
 section{scroll-margin-top:84px}
@@ -112,7 +114,7 @@ section{scroll-margin-top:84px}
 .label .foot{font-size:.72rem;color:var(--muted);padding-top:10px;line-height:1.5}
 .nots{display:flex;flex-wrap:wrap;gap:8px;margin-top:6px}
 /* Tag: one size everywhere, never clickable */
-.chip{display:inline-flex;align-items:center;min-height:var(--h-tag);padding:0 14px;border-radius:var(--r-pill);font-size:.9rem;font-weight:500;line-height:1;background:var(--aqua-soft);color:var(--ink)}
+.chip{display:inline-flex;align-items:center;min-height:var(--h-tag);padding:0 14px;border-radius:var(--r-md);font-size:.9rem;font-weight:500;line-height:1;background:var(--aqua-soft);color:var(--ink)}
 @media (max-width:860px){.label-grid{grid-template-columns:1fr}}
 
 /* Ways to get it */
@@ -138,7 +140,8 @@ section{scroll-margin-top:84px}
 .price-table td{padding:9px 0;border-bottom:1px solid var(--line)}
 .price-table td:last-child{text-align:right;font-weight:600}
 .tables{display:flex;flex-direction:column;gap:28px}
-.callout{border-left:3px solid var(--brass);padding:4px 0 4px 16px;color:var(--muted);font-size:.98rem}
+/* Notes: one style for every tip or reminder (bold lead, plain text) */
+.callout{color:var(--muted);font-size:.98rem}
 .callout b{color:var(--ink)}
 
 /* Delivery */
