@@ -1,6 +1,4 @@
-import { Header, Notice } from "@/components/Header";
-import { Delivery, Hero, History, Vending, Voices, Water, WaysToBuy } from "@/components/Sections";
-import { Footer, Visit } from "@/components/Visit";
+import { PageB } from "@/components/b/Page";
 import { business } from "@/content/site";
 
 // Structured data so search engines show the address, phone and hours.
@@ -39,19 +37,7 @@ export default function Home() {
   return (
     <>
       <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(jsonLd) }} />
-      <Notice />
-      <Header />
-      <main id="top">
-        <Hero />
-        <Water />
-        <WaysToBuy />
-        <Vending />
-        <Delivery />
-        <Voices />
-        <History />
-        <Visit />
-      </main>
-      <Footer />
+      <PageB />
     </>
   );
 }
