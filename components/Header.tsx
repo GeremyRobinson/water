@@ -32,7 +32,7 @@ export function Header() {
           </svg>
           <span>
             {business.name}
-            <small>ARTESIAN · SINCE 1882</small>
+            <small>Artesian water since 1882</small>
           </span>
         </a>
         <nav className="main" aria-label="Main">

@@ -25,19 +25,18 @@ export function CrossSection() {
         <circle className="xs-bubble xs-bubble-2" cx="441" cy="38" r="5" fill="var(--aqua)" />
         <rect x="418" y="64" width="46" height="32" fill="var(--ink)" />
         <g stroke="var(--aqua)" strokeWidth="2" strokeLinecap="round">
-          {[206, 228, 250, 272, 294].map((x, i) => (
-            <path key={x} className="xs-rain" style={{ animationDelay: `${i * 0.23}s` }} d={`M${x} 12 l-3 8`} />
+          {[150, 172, 194, 216, 238].map((x, i) => (
+            <path key={x} className="xs-rain" style={{ animationDelay: `${i * 0.23}s` }} d={`M${x} 28 l-3 8`} />
           ))}
         </g>
-        <g fontSize="11" fill="var(--ink)">
-          <text x="12" y="22">Cleveland National Forest</text>
-          <text x="12" y="36" fill="var(--muted)">~40 mi east</text>
-          <text x="360" y="22">Carlsbad Blvd</text>
-          <text x="360" y="36" fill="var(--muted)">1 block from the Pacific</text>
-          <text x="16" y="120">200 ft non-porous clay</text>
+        <g fontSize="16" fill="var(--ink)">
+          <text x="12" y="18">Cleveland National Forest <tspan fill="var(--muted)">· ~40 mi east</tspan></text>
+          <text x="426" y="46" textAnchor="end">Carlsbad Blvd</text>
+          <text x="426" y="64" textAnchor="end" fill="var(--muted)">1 block from the Pacific</text>
+          <text x="16" y="123">200 ft non-porous clay</text>
           <text x="16" y="200" fill="#ffffff">1,500 ft granite</text>
           <text x="16" y="276" fill="#ffffff">aquifer · ~9,500 years in transit</text>
-          <text x="300" y="370" fill="#ffffff">artesian well · 1,700 ft</text>
+          <text x="290" y="372" fill="#ffffff">artesian well · 1,700 ft</text>
         </g>
       </svg>
       <figcaption className="fig-cap">Not to scale. Depths from our well records.</figcaption>
