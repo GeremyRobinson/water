@@ -1,10 +1,23 @@
-# Carlsbad Alkaline Water website redesign
+# Carlsbad Alkaline Water website
 
-A one-page redesign concept for [carlsbadalkalinewater.com](https://carlsbadalkalinewater.com), built from the content and photos of the current site.
+A redesign of [carlsbadalkalinewater.com](https://carlsbadalkalinewater.com), built with Next.js (App Router) and TypeScript, ready to deploy on Vercel.
 
-Static HTML and CSS with no build step. Open `index.html` in a browser, or serve the folder with any static host such as GitHub Pages.
+## Run it locally
 
-- `index.html`: the page
-- `images/`: photos from the current site, resized
+```bash
+npm install
+npm run dev
+```
 
-The delivery sign-up form is a preview only. It does not send anywhere yet.
+Then open http://localhost:3000.
+
+## Where things live
+
+- `content/site.ts`: address, phone, hours, prices, delivery area and history. Edit business details here.
+- `components/`: the page sections (header, hero, water profile, vending, delivery, customers, history, visit).
+- `app/globals.css`: colors, fonts and layout. Light and dark mode follow the visitor's device.
+- `public/images/`: photos from the current site. Next.js serves them resized and in modern formats.
+
+## Not done yet
+
+The delivery sign-up form checks the fields but doesn't send anywhere. Hook it up to an email service or CRM before relying on it.
