@@ -28,7 +28,7 @@ export function Visit() {
             <h3>Phone</h3>
             <p className="big"><a href={business.phoneHref}>{business.phone}</a></p>
             <button
-              className="copy"
+              className="btn ghost"
               type="button"
               onClick={() =>
                 navigator.clipboard?.writeText(business.phone).then(() => setCopied(true), () => setCopied(false))

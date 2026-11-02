@@ -221,7 +221,7 @@ export function Delivery() {
             <Image src={truck} sizes={half} placeholder="blur" alt="The Carlsbad Alkaline Water delivery truck parked on Carlsbad Blvd" />
           </figure>
           <div className="area" aria-label="Delivery area">
-            {deliveryArea.map((c) => <span key={c}>{c}</span>)}
+            {deliveryArea.map((c) => <span className="chip" key={c}>{c}</span>)}
           </div>
           <PriceTable caption="Delivery prices" rows={deliveryPrices} />
           <p className="tip">Example: three 5-gallon bottles a month costs $72.</p>
