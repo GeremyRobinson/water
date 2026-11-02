@@ -8,20 +8,20 @@ export function Visit() {
   return (
     <section className="visit" id="visit">
       <div className="wrap">
-        <p className="eyebrow">Visit or call</p>
+        <p className="eyebrow">Visit us</p>
         <h2>Come taste the difference</h2>
         <p className="lede">Owners {business.owners} look forward to hearing from you.</p>
         <div className="visit-grid">
           <div>
-            <h3>Water Place &amp; Mineral Spa</h3>
+            <h3>Address</h3>
             <p className="big">
               {business.street}
               <br />
               {business.city}, {business.region} {business.postalCode}
             </p>
-            <a href={business.mapsUrl} target="_blank" rel="noopener noreferrer">Open in Google Maps</a>
-            <p className="form-note" style={{ color: "inherit", opacity: 0.75 }}>
-              Next door to Swami&apos;s Cafe. Please park in our lot, not Fresco Cocina&apos;s.
+            <a className="btn" href={business.mapsUrl} target="_blank" rel="noopener noreferrer">Get directions</a>
+            <p className="form-note" style={{ color: "inherit", opacity: 0.8 }}>
+              Park in our lot next to Swami&apos;s Cafe.
             </p>
           </div>
           <div>
@@ -41,7 +41,7 @@ export function Visit() {
             <h3>Hours</h3>
             <table className="hours">
               <tbody>
-                <tr><td>Vending</td><td>24/7</td></tr>
+                <tr><td>Self-serve water</td><td>24/7</td></tr>
                 <tr><td>Store, Mon–Fri</td><td>8 AM–6 PM</td></tr>
                 <tr><td>Store, Sat–Sun</td><td>9 AM–6 PM</td></tr>
                 <tr><td>Mineral Spa</td><td>Temporarily closed</td></tr>
@@ -58,7 +58,7 @@ export function Footer() {
   return (
     <footer>
       <div className="wrap">
-        <span>© Carlsbad Alkaline Water &amp; Carlsbad Mineral Water Spa · A California Historic Site</span>
+        <span>© {new Date().getFullYear()} Carlsbad Alkaline Water &amp; Carlsbad Mineral Water Spa · A California Historic Site</span>
         <span><a href={business.spaUrl} target="_blank" rel="noopener noreferrer">carlsbadmineralspa.com</a></span>
       </div>
     </footer>

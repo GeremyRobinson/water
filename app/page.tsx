@@ -19,6 +19,16 @@ const jsonLd = {
     addressCountry: "US",
   },
   geo: { "@type": "GeoCoordinates", latitude: business.geo.lat, longitude: business.geo.lng },
+  department: {
+    "@type": "LocalBusiness",
+    name: "Carlsbad Alkaline Water self-serve vending",
+    openingHoursSpecification: {
+      "@type": "OpeningHoursSpecification",
+      dayOfWeek: ["Monday", "Tuesday", "Wednesday", "Thursday", "Friday", "Saturday", "Sunday"],
+      opens: "00:00",
+      closes: "23:59",
+    },
+  },
   openingHoursSpecification: [
     { "@type": "OpeningHoursSpecification", dayOfWeek: ["Monday", "Tuesday", "Wednesday", "Thursday", "Friday"], opens: "08:00", closes: "18:00" },
     { "@type": "OpeningHoursSpecification", dayOfWeek: ["Saturday", "Sunday"], opens: "09:00", closes: "18:00" },

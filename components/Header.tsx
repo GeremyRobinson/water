@@ -1,11 +1,12 @@
 import { business, notices } from "@/content/site";
 
+
 const links = [
   { href: "#water", label: "The Water" },
-  { href: "#vending", label: "Self-Serve" },
+  { href: "#vending", label: "Self-serve" },
   { href: "#delivery", label: "Delivery" },
   { href: "#history", label: "History" },
-  { href: "#visit", label: "Visit" },
+  { href: "#visit", label: "Visit us" },
 ];
 
 export function Notice() {
@@ -13,7 +14,7 @@ export function Notice() {
     <div className="notice">
       <div className="wrap">
         <span>
-          <b>{notices.spaClosed}</b> {notices.vendingOpen}
+          <b>Self-serve water is open 24/7.</b> (The Mineral Spa is temporarily closed.)
         </span>
         <span>{notices.newWell}</span>
       </div>

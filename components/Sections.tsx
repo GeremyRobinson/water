@@ -6,7 +6,6 @@ import {
   deliveryArea,
   deliveryPrices,
   equipment,
-  hours,
   press,
   timeline,
   vendingPricePerGallon,
@@ -42,17 +41,16 @@ export function Hero() {
           </h1>
           <p className="lede">
             Our water rises from a 1,700-foot-deep aquifer one block from the Pacific. It&apos;s naturally alkaline at
-            pH 8.76, with nothing added: no ionizers, no machines, no chemicals.
+            pH 8.76, with nothing added: no ionizers, no filters, no chemicals.
           </p>
           <div className="ctas">
             <a className="btn" href="#vending">Fill up for {vendingPricePerGallon}/gal</a>
             <a className="btn ghost" href="#delivery">Get it delivered</a>
           </div>
-          <div className="hero-facts">
-            <span><b>Open 24/7</b> self-serve</span>
-            <span><b>California Historic Site</b></span>
-            <span>In <b>900+ stores</b> including Costco</span>
-          </div>
+          <p className="where">
+            <b>{business.street}, {business.city}</b> · Self-serve open 24/7 ·{" "}
+            <a href={business.mapsUrl} target="_blank" rel="noopener noreferrer">Get directions</a>
+          </p>
         </div>
         <figure className="photo hero-photo">
           <Image
@@ -77,7 +75,8 @@ export function Water() {
           <p className="eyebrow">The water</p>
           <h2>Filtered by stone for 9,500 years</h2>
           <p className="lede">
-            Carlsbad Alkaline Water is not filtered municipal water. Rain that falls on the Cleveland National Forest
+            Most &ldquo;alkaline&rdquo; water is tap water run through a machine. Ours comes out of the ground that
+            way. Carlsbad Alkaline Water is not filtered city water. Rain that falls on the Cleveland National Forest
             works its way through the rock for thousands of years, protected by 200 feet of clay and 1,500 feet of
             granite, picking up natural minerals before it reaches our wells.
           </p>
@@ -100,7 +99,10 @@ export function Water() {
           <dl>
             {waterProfile.map((r) => (
               <div className={r.big ? "row big" : "row"} key={r.label}>
-                <dt>{r.label}</dt>
+                <dt>
+                  {r.label}
+                  {r.note && <span className="profile-note">{r.note}</span>}
+                </dt>
                 <dd>{r.value}</dd>
               </div>
             ))}
@@ -134,11 +136,11 @@ export function WaysToBuy() {
           </article>
           <article className="way">
             <h3>Home &amp; business delivery</h3>
-            <p className="price">$19 <small>3 gal · $24 for 5 gal</small></p>
+            <p className="price"><small>From</small> $19 <small>per bottle</small></p>
             <ul>
-              <li>Delivered to your door in North County</li>
-              <li>No contract for businesses</li>
-              <li>Coolers and dispensers available</li>
+              <li>3 and 5 gallon bottles, to your door in North County</li>
+              <li>Homes: 1-year plan · Businesses: no contract</li>
+              <li>Dispensers and coolers available</li>
             </ul>
             <a className="btn ghost" href="#delivery">Start delivery</a>
           </article>
@@ -150,7 +152,7 @@ export function WaysToBuy() {
               <li>Costco, Walmart, Target, Sprouts, Bristol Farms</li>
               <li>900+ stores in all</li>
             </ul>
-            <a className="btn ghost" href="#visit">Questions? Call us</a>
+            <a className="btn ghost" href={business.phoneHref}>Call {business.phone}</a>
           </article>
         </div>
       </div>
@@ -181,14 +183,15 @@ export function Vending() {
         <div className="stack">
           <p className="eyebrow">Self-serve vending · {business.street}</p>
           <h2>Bring your bottles. We&apos;re open all night.</h2>
-          <p className="lede">Our machines draw straight from our own historic artesian well. Fill small, medium or large bottles any time.</p>
+          <p className="lede">Our machines draw straight from our own historic artesian well. Fill your own bottles any time, day or night.</p>
+          <p className="tip"><b>No bottles yet?</b> Buy one in our store, from $16 for a 3-gallon bottle. The store is open 8 AM–6 PM weekdays and 9 AM–6 PM weekends.</p>
           <ol className="steps">
             <li><div><b>Bring small bills</b><span>Machines take $1, $5 and $10 bills and coins. Change comes back in coins.</span></div></li>
             <li><div><b>Rinse first, for $0.10</b><span>Place the bottle upside down over the nozzle, press the rinse button and spin the bottle.</span></div></li>
             <li><div><b>Fill up at {vendingPricePerGallon} a gallon</b><span>3 and 5 gallon bottles fit right under the nozzle.</span></div></li>
-            <li><div><b>Keep your bottles clean</b><span>Every so often, swirl about 32 oz of tap water with a tablespoon of bleach for 3 minutes, then rinse well several times.</span></div></li>
           </ol>
-          <p className="callout"><b>Please don&apos;t park in the Fresco Cocina lot.</b> It&apos;s private parking for the restaurant.</p>
+          <p className="callout"><b>Park in our lot</b> next to Swami&apos;s Cafe. The Fresco Cocina lot is for restaurant guests only.</p>
+          <p className="tip"><b>Keep your bottles clean.</b> Every so often, swirl about 32 oz of tap water with a tablespoon of bleach for 3 minutes, then rinse well several times.</p>
           <p className="callout"><b>Skip ceramic crocks.</b> Airborne bacteria grows inside them and affects the taste and pH of the water. Our non-bacterial dispenser with stand is a better fit.</p>
         </div>
         <div className="tables">
@@ -196,9 +199,10 @@ export function Vending() {
             <Image src={kioskNight} sizes={half} placeholder="blur" alt="A customer holding filled water jugs in front of the lit self-serve kiosk at night" />
             <figcaption>The kiosk is open all night. Bring your own bottles.</figcaption>
           </figure>
-          <PriceTable caption="Bottles & equipment · in store" rows={equipment} />
-          <PriceTable caption="Hours" rows={hours.map((h) => ({ item: h.label, price: h.value }))} />
-          <p className="form-note">Buying equipment? Call ahead at {business.phone} to make sure what you need is in stock.</p>
+          <PriceTable caption="Bottles & dispensers, sold in our store" rows={equipment} />
+          <p className="form-note">
+            Store hours are in <a href="#visit">Visit us</a>. Call ahead at {business.phone} to check something is in stock.
+          </p>
         </div>
       </div>
     </section>
@@ -219,12 +223,14 @@ export function Delivery() {
           <div className="area" aria-label="Delivery area">
             {deliveryArea.map((c) => <span key={c}>{c}</span>)}
           </div>
-          <PriceTable caption="Delivery pricing" rows={deliveryPrices} />
-          <p className="callout">
-            <b>Minimum order:</b> three 3 or 5 gallon bottles, or 3 cases, per month. Home delivery uses a one-year
-            agreement with a $100 early-cancellation fee, waived if you move outside our area. Businesses need no
-            contract. A 3% fee ($1 minimum) applies to card payments.
-          </p>
+          <PriceTable caption="Delivery prices" rows={deliveryPrices} />
+          <p className="tip">Example: three 5-gallon bottles a month costs $72.</p>
+          <ul className="terms" aria-label="Delivery terms">
+            <li><b>Minimum:</b> at least 3 bottles (3 or 5 gal) or 3 cases a month</li>
+            <li><b>Homes:</b> 1-year plan. $100 to cancel early, waived if you move away.</li>
+            <li><b>Businesses:</b> no contract</li>
+            <li><b>Paying by card</b> adds 3% ($1 minimum)</li>
+          </ul>
         </div>
         <DeliveryForm />
       </div>
@@ -234,8 +240,8 @@ export function Delivery() {
 
 const quotes = [
   { img: jake, alt: "Jake Smith beside the Frazier statue", text: "Jake drinks one to one and a half gallons a day to keep in top condition.", cite: "Jake Smith, world arm wrestling champion and our general manager for 20 years" },
-  { img: segal, alt: "Fred Segal, Veronica Grigoras, Tina Segal and Ludvik Grigoras at the statue", text: "Thank you to Shailene Woodley and Ellen DeGeneres for sharing our water with millions of viewers.", cite: "As featured on The Ellen DeGeneres Show. Pictured: Fred & Tina Segal with owners Veronica & Ludvik Grigoras" },
-  { img: pickett, alt: "Ryan and Jennifer Pickett at the Frazier statue", text: "Koko Beach cooks with Carlsbad Alkaline Water and serves it free with every meal.", cite: "Koko Beach restaurant, Carlsbad. Pictured: Ryan Pickett of the Green Bay Packers and Jennifer Pickett, longtime fans" },
+  { img: segal, alt: "Fred Segal, Veronica Grigoras, Tina Segal and Ludvik Grigoras at the statue", text: "Shailene Woodley shared our water with millions of viewers on The Ellen DeGeneres Show.", cite: "Pictured: Fred & Tina Segal with owners Veronica & Ludvik Grigoras" },
+  { img: pickett, alt: "Ryan and Jennifer Pickett at the Frazier statue", text: "Ryan and Jennifer Pickett and their family love our water.", cite: "Ryan Pickett played for the Green Bay Packers" },
 ];
 
 const gallery = [

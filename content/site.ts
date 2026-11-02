@@ -23,10 +23,10 @@ export const notices = {
     "Our 3rd historic well was completed in December 2020, so there's plenty of water for everyone.",
 };
 
-export const waterProfile: { label: string; value: string; big?: boolean }[] = [
-  { label: "pH", value: "8.76", big: true },
-  { label: "Total dissolved solids", value: "50–70 ppm" },
-  { label: "Sodium", value: "0" },
+export const waterProfile: { label: string; value: string; big?: boolean; note?: string }[] = [
+  { label: "pH", value: "8.76", big: true, note: "7 is neutral. Higher is alkaline." },
+  { label: "Minerals (TDS)", value: "50–70 ppm" },
+  { label: "Sodium", value: "0 mg" },
   { label: "Fluoride", value: "0.0 ppm" },
   { label: "Source depth", value: "1,700 ft" },
   { label: "Time underground", value: "~9,500 yrs" },
@@ -65,9 +65,9 @@ export const deliveryArea = [
 ];
 
 export const deliveryPrices: { item: string; price: string }[] = [
-  { item: "5 gallon bottle", price: "$24.00" },
-  { item: "3 gallon bottle", price: "$19.00" },
-  { item: "Case of 12 × 1 liter", price: "$25.00" },
+  { item: "5 gallon bottle, delivered", price: "$24" },
+  { item: "3 gallon bottle, delivered", price: "$19" },
+  { item: "Case of 12 one-liter bottles", price: "$25" },
 ];
 
 export const press = [
