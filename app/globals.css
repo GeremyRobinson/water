@@ -315,3 +315,4 @@ section{padding-block:clamp(72px,10vw,128px)}
 blockquote p{font-size:1.2rem}
 .family .eyebrow{color:var(--aqua);font-size:1rem}
 @media (max-width:600px){.xs svg text{font-size:28px!important}}
+.hero h1 em{display:block}
