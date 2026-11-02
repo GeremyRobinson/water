@@ -7,7 +7,7 @@ import waterPlaceDay from "@/public/images/water-place-day.jpg";
 import waterPlaceNight from "@/public/images/water-place-night.jpg";
 import truck from "@/public/images/delivery-truck.jpg";
 import segal from "@/public/images/segal-family.jpg";
-import founders from "@/public/images/founders-1880s.jpg";
+import founders from "@/public/images/founders-photo.jpg";
 import jake from "@/public/images/jake-smith.jpg";
 import pickett from "@/public/images/pickett-family.jpg";
 import bicycle from "@/public/images/customer-bicycle.jpg";
@@ -62,7 +62,7 @@ function Hero() {
           <p>{vendingPricePerGallon} a gallon at {business.street}, Carlsbad</p>
           <div className="btns">
             <a className="btn" href={business.mapsUrl} target="_blank" rel="noopener noreferrer">Get directions</a>
-            <a className="btn ghost" href="#delivery">Get it delivered</a>
+            <a className="btn ghost" href="#delivery">Get delivery</a>
           </div>
         </div>
       </div>
@@ -221,7 +221,7 @@ function OurWater() {
         </p>
 
         <figure className="journey">
-          <svg viewBox="0 0 1000 380" role="img" aria-labelledby="j-t">
+          <svg className="j-wide" viewBox="0 0 1000 380" role="img" aria-labelledby="j-t">
             <title id="j-t">Rain falls on the mountains, soaks down through clay and granite, travels west for about 9,500 years, and rises in our well by the ocean.</title>
             <rect width="1000" height="110" className="sky" />
             <path d="M0 110 V70 L70 40 L130 62 L200 28 L280 66 L380 96 L600 106 L900 110 Z" className="hill" />
@@ -240,6 +240,26 @@ function OurWater() {
               <circle cx="470" cy="200" r="26" /><text x="470" y="209">2</text>
               <circle cx="560" cy="300" r="26" /><text x="560" y="309">3</text>
               <circle cx="920" cy="60" r="26" /><text x="920" y="69">4</text>
+            </g>
+          </svg>
+          <svg className="j-narrow" viewBox="0 0 400 440" aria-hidden="true">
+            <rect width="400" height="120" className="sky" />
+            <path d="M0 120 V80 L40 55 L80 72 L120 45 L170 78 L240 108 L340 118 L400 120 Z" className="hill" />
+            <rect x="352" y="114" width="48" height="10" className="sea" />
+            <path d="M0 120 H400 V190 L0 170 Z" className="clay" />
+            <path d="M0 170 L400 190 V350 L0 300 Z" className="granite" />
+            <path d="M0 300 L400 350 V395 L0 340 Z" className="aquifer" />
+            <path d="M0 340 L400 395 V440 H0 Z" className="deep" />
+            <path d="M50 322 C 150 336, 250 356, 330 372" className="flow" />
+            <path d="M318 363 l14 9 l-14 9" className="flow-head" />
+            <rect x="334" y="80" width="12" height="300" className="well" />
+            <rect x="328" y="72" width="24" height="12" rx="3" className="well-cap" />
+            <g className="rain"><path d="M70 12 l-6 16" /><path d="M95 12 l-6 16" /><path d="M120 12 l-6 16" /><path d="M145 12 l-6 16" /></g>
+            <g className="marks">
+              <circle cx="190" cy="42" r="22" /><text x="190" y="51">1</text>
+              <circle cx="190" cy="245" r="22" /><text x="190" y="254">2</text>
+              <circle cx="140" cy="332" r="22" /><text x="140" y="341">3</text>
+              <circle cx="374" cy="46" r="22" /><text x="374" y="55">4</text>
             </g>
           </svg>
           <figcaption className="small">Not to scale.</figcaption>
@@ -315,11 +335,11 @@ function Story() {
 }
 
 const friends = [
-  { img: jake, alt: "Jake Smith beside the statue of John Frazier", text: "Jake Smith, world arm wrestling champion and our general manager for 20 years, drinks one to one and a half gallons a day." },
-  { img: pickett, alt: "Ryan and Jennifer Pickett at the statue", text: "Ryan Pickett, who played for the Green Bay Packers, and his wife Jennifer are longtime customers." },
-  { img: bicycle, alt: "A customer with her child and water bottles on her bicycle at the kiosk", text: "Some of our neighbors fill up by bike." },
-  { img: kioskJug, alt: "A customer carrying a five-gallon jug in front of the kiosk", text: "Others drive from Los Angeles, Las Vegas and Arizona. Some come 470 miles." },
-  { img: school, alt: "A school group visiting the statue of John Frazier", text: "Schools visit to learn how Carlsbad got its name." },
+  { img: jake, pos: "50% 35%", alt: "Jake Smith beside the statue of John Frazier", text: "Jake Smith, world arm wrestling champion and our general manager for 20 years, drinks one to one and a half gallons a day." },
+  { img: pickett, pos: "50% 40%", alt: "Ryan and Jennifer Pickett at the statue", text: "Ryan Pickett, who played for the Green Bay Packers, and his wife Jennifer are longtime customers." },
+  { img: bicycle, pos: "36% 50%", alt: "A customer with her child and water bottles on her bicycle at the kiosk", text: "Some of our neighbors fill up by bike." },
+  { img: kioskJug, pos: "42% 50%", alt: "A customer carrying a five-gallon jug in front of the kiosk", text: "Others drive from Los Angeles, Las Vegas and Arizona. Some come 470 miles." },
+  { img: school, pos: "50% 60%", alt: "A school group visiting the statue of John Frazier", text: "Schools visit to learn how Carlsbad got its name." },
 ];
 
 function Friends() {
@@ -331,7 +351,7 @@ function Friends() {
         <ul className="friends">
           {friends.map((f) => (
             <li key={f.text}>
-              <Image src={f.img} alt={f.alt} sizes="(max-width: 640px) 100vw, (max-width: 1000px) 50vw, 340px" placeholder="blur" />
+              <Image src={f.img} alt={f.alt} style={{ objectPosition: f.pos }} sizes="(max-width: 560px) 100vw, (max-width: 900px) 50vw, 340px" placeholder="blur" />
               <p>{f.text}</p>
             </li>
           ))}
