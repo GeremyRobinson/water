@@ -149,7 +149,7 @@ section > .wrap > h2 + .lead{margin-top:18px}
 .journey svg{width:100%;height:auto;display:block;border-radius:var(--radius)}
 .journey figcaption{margin-top:8px;text-align:right}
 .journey .j-narrow{display:none}
-@media (max-width:640px){.journey .j-wide{position:absolute;width:1px;height:1px;overflow:hidden;clip:rect(0 0 0 0)}.journey .j-narrow{display:block}}
+@media (max-width:860px){.journey .j-wide{position:absolute;width:1px;height:1px;overflow:hidden;clip:rect(0 0 0 0)}.journey .j-narrow{display:block;max-width:520px;margin-inline:auto}.journey figcaption{text-align:center}}
 .journey .sky{fill:var(--sky)}
 .journey .hill{fill:var(--deep)}
 .journey .sea{fill:var(--sea)}
@@ -157,13 +157,24 @@ section > .wrap > h2 + .lead{margin-top:18px}
 .journey .granite{fill:var(--granite)}
 .journey .aquifer{fill:var(--aquifer)}
 .journey .deep{fill:var(--deep)}
-.journey .flow{fill:none;stroke:#fff;stroke-width:4;stroke-dasharray:3 12;stroke-linecap:round}
+.journey .flow{fill:none;stroke:#fff;stroke-width:4;stroke-dasharray:3 12;stroke-linecap:round;animation:j-flow 1.6s linear infinite}
 .journey .flow-head{fill:none;stroke:#fff;stroke-width:4;stroke-linecap:round;stroke-linejoin:round}
 .journey .well{fill:var(--accent)}
+.journey .rise{fill:none;stroke:#bfe1fb;stroke-width:4;stroke-dasharray:6 14;stroke-linecap:round;animation:j-rise 1.2s linear infinite}
 .journey .well-cap{fill:var(--ink)}
-.journey .rain path{stroke:var(--accent);stroke-width:4;stroke-linecap:round}
+.journey .rain path{stroke:var(--accent);stroke-width:3.5;stroke-linecap:round;animation:j-rain 1.4s linear infinite}
+.journey .seep circle{fill:var(--accent);animation:j-seep 2.7s ease-in infinite}
+.journey .labels text{font:600 19px var(--font);fill:var(--ink)}
+.journey .labels .sub{font-weight:500;fill:var(--body)}
+.journey .labels .light{fill:#fff}
+.journey .j-narrow .labels text{font-size:16px}
 .journey .marks circle{fill:var(--bg);stroke:var(--ink);stroke-width:3}
-.journey .marks text{font:700 26px var(--font);fill:var(--ink);text-anchor:middle}
+.journey .marks text{font:700 22px var(--font);fill:var(--ink);text-anchor:middle}
+@keyframes j-flow{to{stroke-dashoffset:-30}}
+@keyframes j-rise{to{stroke-dashoffset:-40}}
+@keyframes j-rain{0%{transform:translateY(0);opacity:0}15%{opacity:1}100%{transform:translateY(46px);opacity:0}}
+@keyframes j-seep{0%{transform:translateY(0);opacity:0}15%{opacity:1}85%{opacity:1}100%{transform:translateY(120px);opacity:0}}
+@media (prefers-reduced-motion: reduce){.journey *{animation:none!important}}
 .legend{counter-reset:l;display:grid;grid-template-columns:repeat(2,1fr);gap:22px 48px;margin-top:36px}
 .legend li{counter-increment:l;display:grid;grid-template-columns:40px 1fr;gap:14px;font-size:19px}
 .legend li::before{content:counter(l);width:40px;height:40px;border-radius:50%;border:2.5px solid var(--ink);color:var(--ink);display:grid;place-items:center;font-weight:700;font-size:18px}

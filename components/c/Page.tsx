@@ -230,16 +230,32 @@ function OurWater() {
             <path d="M0 140 L1000 160 V290 L0 250 Z" className="granite" />
             <path d="M0 250 L1000 290 V330 L0 286 Z" className="aquifer" />
             <path d="M0 286 L1000 330 V380 H0 Z" className="deep" />
+            <g className="rain">
+              {[110, 140, 170, 200, 230, 260].map((x, i) => <path key={x} d={`M${x} 6 l-4 12`} style={{ animationDelay: `${i * 0.23}s` }} />)}
+            </g>
+            <g className="seep">
+              {[150, 190, 230].map((x, i) => <circle key={x} cx={x} cy="118" r="5" style={{ animationDelay: `${i * 0.9}s` }} />)}
+            </g>
             <path d="M160 270 C 400 285, 640 300, 840 312" className="flow" />
             <path d="M826 303 l16 9 l-16 9" className="flow-head" />
             <rect x="842" y="70" width="14" height="250" className="well" />
+            <path d="M849 312 V78" className="rise" />
             <rect x="836" y="62" width="26" height="12" rx="3" className="well-cap" />
-            <g className="rain"><path d="M150 12 l-6 16" /><path d="M180 12 l-6 16" /><path d="M210 12 l-6 16" /><path d="M240 12 l-6 16" /></g>
+            <g className="labels">
+              <text x="300" y="44">Cleveland National Forest</text>
+              <text x="300" y="68" className="sub">40 miles east of Carlsbad</text>
+              <text x="828" y="92" textAnchor="end">Our well</text>
+              <text x="950" y="96" textAnchor="middle" className="sub">Pacific</text>
+              <text x="24" y="134">Clay, 200 ft</text>
+              <text x="24" y="196">Granite, 1,500 ft</text>
+              <text x="824" y="226" textAnchor="end">1,700 ft down</text>
+              <text x="250" y="345" className="light">Heading west underground for about 9,500 years</text>
+            </g>
             <g className="marks">
-              <circle cx="110" cy="80" r="26" /><text x="110" y="89">1</text>
-              <circle cx="470" cy="200" r="26" /><text x="470" y="209">2</text>
-              <circle cx="560" cy="300" r="26" /><text x="560" y="309">3</text>
-              <circle cx="920" cy="60" r="26" /><text x="920" y="69">4</text>
+              <circle cx="60" cy="26" r="20" /><text x="60" y="34">1</text>
+              <circle cx="300" cy="226" r="20" /><text x="300" y="234">2</text>
+              <circle cx="210" cy="338" r="20" /><text x="210" y="346">3</text>
+              <circle cx="920" cy="44" r="20" /><text x="920" y="52">4</text>
             </g>
           </svg>
           <svg className="j-narrow" viewBox="0 0 400 440" aria-hidden="true">
@@ -250,16 +266,30 @@ function OurWater() {
             <path d="M0 170 L400 190 V350 L0 300 Z" className="granite" />
             <path d="M0 300 L400 350 V395 L0 340 Z" className="aquifer" />
             <path d="M0 340 L400 395 V440 H0 Z" className="deep" />
+            <g className="rain">
+              {[50, 75, 100, 125, 150].map((x, i) => <path key={x} d={`M${x} 6 l-4 12`} style={{ animationDelay: `${i * 0.23}s` }} />)}
+            </g>
+            <g className="seep">
+              {[70, 110].map((x, i) => <circle key={x} cx={x} cy="128" r="4" style={{ animationDelay: `${i * 1.1}s` }} />)}
+            </g>
             <path d="M50 322 C 150 336, 250 356, 330 372" className="flow" />
             <path d="M318 363 l14 9 l-14 9" className="flow-head" />
             <rect x="334" y="80" width="12" height="300" className="well" />
+            <path d="M340 372 V88" className="rise" />
             <rect x="328" y="72" width="24" height="12" rx="3" className="well-cap" />
-            <g className="rain"><path d="M70 12 l-6 16" /><path d="M95 12 l-6 16" /><path d="M120 12 l-6 16" /><path d="M145 12 l-6 16" /></g>
+            <g className="labels">
+              <text x="12" y="104" className="light">Mountains</text>
+              <text x="320" y="100" textAnchor="end">Our well</text>
+              <text x="12" y="152">Clay, 200 ft</text>
+              <text x="12" y="212">Granite, 1,500 ft</text>
+              <text x="320" y="306" textAnchor="end">1,700 ft down</text>
+              <text x="16" y="412" className="light">About 9,500 years</text>
+            </g>
             <g className="marks">
-              <circle cx="190" cy="42" r="22" /><text x="190" y="51">1</text>
-              <circle cx="190" cy="245" r="22" /><text x="190" y="254">2</text>
-              <circle cx="140" cy="332" r="22" /><text x="140" y="341">3</text>
-              <circle cx="374" cy="46" r="22" /><text x="374" y="55">4</text>
+              <circle cx="190" cy="40" r="20" /><text x="190" y="48">1</text>
+              <circle cx="236" cy="236" r="20" /><text x="236" y="244">2</text>
+              <circle cx="196" cy="406" r="20" /><text x="196" y="414">3</text>
+              <circle cx="374" cy="44" r="20" /><text x="374" y="52">4</text>
             </g>
           </svg>
           <figcaption className="small">Not to scale.</figcaption>
