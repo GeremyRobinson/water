@@ -43,12 +43,12 @@ export default function Home() {
       <Header />
       <main id="top">
         <Hero />
-        <Water />
         <WaysToBuy />
+        <Water />
         <Vending />
         <Delivery />
-        <Voices />
         <History />
+        <Voices />
         <Visit />
       </main>
       <Footer />

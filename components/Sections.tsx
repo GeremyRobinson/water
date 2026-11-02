@@ -23,7 +23,8 @@ import trailer from "@/public/images/bike-trailer-jug.jpg";
 import school from "@/public/images/school-group.jpg";
 import plaza from "@/public/images/visitors-plaza.jpg";
 import night from "@/public/images/water-place-night.jpg";
-import founders from "@/public/images/founders-1880s.jpg";
+import founders from "@/public/images/founders-photo.jpg";
+import kioskJug from "@/public/images/kiosk-customer-jug.jpg";
 import clipEden from "@/public/images/clipping-eden-in-a-glass.jpg";
 import clipFlows from "@/public/images/clipping-history-flows.jpg";
 import clipTherapeutic from "@/public/images/clipping-therapeutic-history.jpg";
@@ -44,7 +45,7 @@ export function Hero() {
             pH 8.76, with nothing added: no ionizers, no filters, no chemicals.
           </p>
           <div className="ctas">
-            <a className="btn" href="#vending">Fill up for {vendingPricePerGallon}/gal</a>
+            <a className="btn" href="#vending">Fill up · {vendingPricePerGallon}/gal</a>
             <a className="btn ghost" href="#delivery">Get it delivered</a>
           </div>
           <p className="where">
@@ -69,47 +70,53 @@ export function Hero() {
 
 export function Water() {
   return (
-    <section id="water">
-      <div className="wrap label-grid">
-        <div className="stack">
-          <p className="eyebrow">The water</p>
-          <h2>Filtered by stone for 9,500 years</h2>
-          <p className="lede">
-            Most &ldquo;alkaline&rdquo; water is tap water run through a machine. Ours comes out of the ground that
-            way. Carlsbad Alkaline Water is not filtered city water. Rain that falls on the Cleveland National Forest
-            works its way through the rock for thousands of years, protected by 200 feet of clay and 1,500 feet of
-            granite, picking up natural minerals before it reaches our wells.
-          </p>
-          <p className="lede">
-            Our source and vending machines are licensed by the California Department of Public Health and tested
-            weekly, as state and federal law require. The California Legislature designated the well a California
-            Historic Site, and the North County Times called our water &ldquo;Eden in a Glass.&rdquo;
-          </p>
-          <div className="nots" aria-label="What our water does not contain">
-            {["Sodium free", "Not fluoridated", "Not chlorinated", "Nothing added"].map((c) => (
-              <span className="chip" key={c}>{c}</span>
-            ))}
-          </div>
-          <p className="form-note">Physicians Formula uses Carlsbad Alkaline Water in its Mineral Care facial products.</p>
+    <section className="alt" id="water">
+      <div className="wrap">
+        <p className="eyebrow">The water</p>
+        <h2>Filtered by stone for 9,500 years</h2>
+        <p className="lede">
+          Most &ldquo;alkaline&rdquo; water is tap water run through a machine. Ours comes out of the ground that way.
+          Rain that falls on the Cleveland National Forest works its way through the rock for thousands of years,
+          protected by 200 feet of clay and 1,500 feet of granite, picking up natural minerals before it reaches our wells.
+        </p>
+        <div className="water-grid">
           <CrossSection />
+          <div className="label" aria-label="Water profile">
+            <h3>Water Profile</h3>
+            <p className="sub">Carlsbad Alkaline Water™ · Historic artesian well, Carlsbad CA</p>
+            <dl>
+              {waterProfile.map((r) => (
+                <div className={r.big ? "row big" : "row"} key={r.label}>
+                  <dt>
+                    {r.label}
+                    {r.note && <span className="profile-note">{r.note}</span>}
+                  </dt>
+                  <dd>{r.value}</dd>
+                </div>
+              ))}
+            </dl>
+            <p className="foot">
+              Fluoride and sodium per independent analysis by Dr. Richard Sauerheber, Palomar College, Sept 30, 2011.
+              Source licensed by the California Department of Public Health.
+            </p>
+          </div>
         </div>
-        <div className="label" aria-label="Water profile">
-          <h3>Water Profile</h3>
-          <p className="sub">Carlsbad Alkaline Water™ · Historic artesian well, Carlsbad CA</p>
-          <dl>
-            {waterProfile.map((r) => (
-              <div className={r.big ? "row big" : "row"} key={r.label}>
-                <dt>
-                  {r.label}
-                  {r.note && <span className="profile-note">{r.note}</span>}
-                </dt>
-                <dd>{r.value}</dd>
-              </div>
-            ))}
-          </dl>
-          <p className="foot">
-            Fluoride and sodium per independent analysis by Dr. Richard Sauerheber, Palomar College, Sept 30, 2011.
-            Source licensed by the California Department of Public Health.
+        <div className="nots" aria-label="What our water does not contain">
+          {["Sodium free", "Not fluoridated", "Not chlorinated", "Nothing added"].map((c) => (
+            <span className="chip" key={c}>{c}</span>
+          ))}
+        </div>
+        <div className="trust">
+          <p>
+            <b>Licensed and tested.</b> Our source and vending machines are licensed by the California Department of
+            Public Health and tested weekly, as state and federal law require.
+          </p>
+          <p>
+            <b>A California Historic Site.</b> The California Legislature designated the well a historic site, and the
+            North County Times called our water &ldquo;Eden in a Glass.&rdquo;
+          </p>
+          <p>
+            <b>Trusted by others.</b> Physicians Formula uses Carlsbad Alkaline Water in its Mineral Care facial products.
           </p>
         </div>
       </div>
@@ -119,7 +126,7 @@ export function Water() {
 
 export function WaysToBuy() {
   return (
-    <section className="alt" id="get">
+    <section id="get">
       <div className="wrap">
         <p className="eyebrow">Three ways to drink it</p>
         <h2>Fill up, have it delivered, or grab a liter</h2>
@@ -240,7 +247,7 @@ export function Delivery() {
 
 const quotes = [
   { img: jake, alt: "Jake Smith beside the Frazier statue", text: "Jake drinks one to one and a half gallons a day to keep in top condition.", cite: "Jake Smith, world arm wrestling champion and our general manager for 20 years" },
-  { img: segal, alt: "Fred Segal, Veronica Grigoras, Tina Segal and Ludvik Grigoras at the statue", text: "Shailene Woodley shared our water with millions of viewers on The Ellen DeGeneres Show.", cite: "Pictured: Fred & Tina Segal with owners Veronica & Ludvik Grigoras" },
+  { img: kioskJug, alt: "A customer carrying a five-gallon jug in front of the kiosk", text: "Some of our customers drive 470 miles one way to fill up.", cite: "Regulars come from Los Angeles, Las Vegas and Arizona" },
   { img: pickett, alt: "Ryan and Jennifer Pickett at the Frazier statue", text: "Ryan and Jennifer Pickett and their family love our water.", cite: "Ryan Pickett played for the Green Bay Packers" },
 ];
 
@@ -254,7 +261,7 @@ const gallery = [
 
 export function Voices() {
   return (
-    <section id="voices">
+    <section className="alt" id="voices">
       <div className="wrap">
         <p className="eyebrow">Our customers</p>
         <h2>People drive hundreds of miles for it</h2>
@@ -290,7 +297,7 @@ const clippings = [
 
 export function History() {
   return (
-    <section className="alt" id="history">
+    <section id="history">
       <div className="wrap">
         <p className="eyebrow">History</p>
         <h2>The well that named a city</h2>
@@ -299,6 +306,20 @@ export function History() {
           <Image src={founders} sizes="(max-width: 860px) 100vw, 820px" placeholder="blur" alt="Carlsbad's founders on the train platform in the late 1880s, by the Mineral Water sign, with the Hotel Carlsbad behind" />
           <figcaption>Carlsbad&apos;s founders in the late 1880s. John Frazier, his wife and daughter, Gerhard Schutte, Samuel Church Smith and D.D. Wadsworth stand by the Mineral Water sign.</figcaption>
         </figure>
+        <div className="two family">
+          <div className="stack">
+            <p className="eyebrow">The family behind the well</p>
+            <h3 className="h3big">A son of Karlovy Vary brought it back</h3>
+            <p>The Great Depression closed the well in the 1930s. In 1955, Kay and &ldquo;Chris&rdquo; Christiansen found it again, but couldn&apos;t bring it back.</p>
+            <p>In 1991, Kay met <b>Ludvik Grigoras</b>. Ludvik was born in Karlovy Vary, the very Karlsbad our city is named after. He escaped communist Czechoslovakia at 18 and made his way to the United States.</p>
+            <p>From 1993 to 1996, Ludvik and his wife <b>Veronica</b> restored and re-drilled the wells. In June 1996, after 60 years, the water flowed for the public again. They still run it today.</p>
+          </div>
+          <figure className="photo portrait">
+            <Image src={segal} sizes="(max-width: 860px) 100vw, 369px" placeholder="blur" alt="Owners Veronica and Ludvik Grigoras with friends Fred and Tina Segal at the statue of John Frazier" />
+            <figcaption>Owners Veronica (second from left) and Ludvik Grigoras (right), with friends Fred and Tina Segal.</figcaption>
+          </figure>
+        </div>
+        <h3 className="h3big tl-head">The story in dates</h3>
         <ol className="timeline">
           {timeline.map((t) => (
             <li key={t.year}>

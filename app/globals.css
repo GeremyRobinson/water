@@ -253,3 +253,65 @@ footer a{display:inline-block;padding-block:12px}
   .clippings figure:not(:first-child){display:none}
   .xs svg{min-height:0}
 }
+
+/* Direction D: the same family and content, with more room and larger, calmer type */
+body{font-size:1.125rem}
+.lede{font-size:clamp(1.15rem,1.6vw,1.3rem);line-height:1.55;max-width:40em}
+h2{font-size:clamp(2.25rem,5vw,3.5rem);letter-spacing:-.028em}
+h2 + .lede{margin-top:18px}
+.eyebrow{font-size:1rem;margin-bottom:10px}
+section{padding-block:clamp(72px,10vw,128px)}
+.stack > .eyebrow{margin-bottom:-6px}
+
+/* Hero: bigger, calmer, buttons side by side on phones */
+.hero{padding-block:clamp(48px,7vw,96px) clamp(24px,4vw,48px)}
+.hero-grid{grid-template-columns:1fr 1.05fr;gap:clamp(28px,5vw,72px)}
+@media (max-width:860px){.hero-grid{grid-template-columns:1fr}}
+.hero h1{font-size:clamp(2.9rem,7vw,5.25rem)}
+.hero .stack{gap:20px}
+.hero .ctas{flex-wrap:nowrap}
+.hero-photo img{aspect-ratio:5/4}
+@media (max-width:760px){.hero .ctas .btn{flex:1 1 0;padding:0 12px;font-size:.98rem}}
+@media (max-width:359px){.hero .ctas{flex-wrap:wrap}}
+
+/* Three ways: purpose first, right after the intro */
+.ways{margin-top:48px;gap:24px}
+.way{background:var(--surface);gap:14px}
+.way h3{font-size:1.35rem}
+.way .price{font-size:2.75rem}
+.way ul{font-size:1.02rem;gap:6px}
+
+/* Water: the diagram gets room beside the profile */
+.water-grid{display:grid;grid-template-columns:1.35fr 1fr;gap:clamp(24px,4vw,48px);align-items:start;margin-top:48px}
+.water-grid .xs{margin:0}
+.water-grid .label{max-width:none}
+.water-grid .xs svg text{font-size:21px}
+.nots{margin-top:32px}
+.trust{display:grid;grid-template-columns:repeat(3,1fr);gap:24px 40px;margin-top:40px;padding-top:32px;border-top:1px solid var(--line)}
+.trust p{color:var(--muted);font-size:1.02rem}
+.trust b{display:block;color:var(--ink);font-size:1.1rem;margin-bottom:4px}
+@media (max-width:860px){.water-grid{grid-template-columns:1fr}.trust{grid-template-columns:1fr}}
+.label{padding:28px;border-radius:calc(var(--r-inner) + 28px)}
+
+/* Two-column blocks get more air */
+.two{gap:clamp(32px,6vw,80px)}
+.steps{gap:20px}
+.steps li{grid-template-columns:44px 1fr;gap:16px}
+.steps li::before{width:44px;height:44px;font-size:1.05rem}
+.steps b{font-size:1.12rem}
+
+/* Family story */
+.history-photo{max-width:none;margin-top:40px}
+.family{margin-top:64px;align-items:center}
+.family p{color:var(--muted);font-size:1.1rem}
+.family b{color:var(--ink)}
+.h3big{font-size:clamp(1.6rem,3vw,2.1rem);letter-spacing:-.02em;line-height:1.15}
+.portrait{max-width:369px;width:100%;justify-self:center}
+.tl-head{margin-top:72px}
+.timeline{margin-top:20px}
+
+/* Customers */
+.quotes{gap:24px;margin-top:48px}
+blockquote p{font-size:1.2rem}
+.family .eyebrow{color:var(--aqua);font-size:1rem}
+@media (max-width:600px){.xs svg text{font-size:28px!important}}
