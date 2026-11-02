@@ -204,3 +204,15 @@ blockquote img{width:100%;height:auto;aspect-ratio:4/5;object-fit:cover;object-p
 .xs svg text{font-family:var(--mono)}
 .photo img{height:auto}
 .price-table td:last-child{white-space:nowrap;padding-left:12px}
+
+/* Cross-section motion: rain, flow through the aquifer, water rising up the well */
+@keyframes xs-rain{0%{transform:translate(0,-6px);opacity:0}20%{opacity:1}100%{transform:translate(-6px,26px);opacity:0}}
+@keyframes xs-flow{to{stroke-dashoffset:-55}}
+@keyframes xs-rise{to{stroke-dashoffset:32}}
+@keyframes xs-bubble{0%{transform:translateY(0) scale(.6);opacity:.9}100%{transform:translateY(-22px) scale(1.2);opacity:0}}
+.xs-rain{animation:xs-rain 1.15s linear infinite}
+.xs-flow{animation:xs-flow 2.4s linear infinite}
+.xs-rise{animation:xs-rise .9s linear infinite}
+.xs-bubble{transform-box:fill-box;transform-origin:center;animation:xs-bubble 1.8s ease-out infinite}
+.xs-bubble-2{animation-delay:.9s}
+@media (prefers-reduced-motion: reduce){.xs-rain,.xs-flow,.xs-rise,.xs-bubble{animation:none}.xs-bubble-2{display:none}}

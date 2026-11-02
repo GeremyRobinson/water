@@ -16,13 +16,19 @@ export function CrossSection() {
         <path d="M0 130 L560 150 L560 300 L0 250 Z" fill="var(--granite)" />
         <path d="M0 250 L560 300 L560 340 L0 285 Z" fill="var(--aquifer)" />
         <path d="M0 285 L560 340 L560 400 L0 400 Z" fill="var(--granite-dark)" />
-        <path d="M40 268 C140 280 260 292 420 312" stroke="#ffffff" strokeWidth="2" fill="none" strokeLinecap="round" strokeDasharray="2 9" opacity=".9" />
+        <path className="xs-flow" d="M70 283 C170 292 290 301 420 312" stroke="#ffffff" strokeWidth="2.5" fill="none" strokeLinecap="round" strokeDasharray="2 9" opacity=".9" />
         <path d="M408 304 l14 8 l-14 7" fill="none" stroke="#ffffff" strokeWidth="2" />
         <rect x="436" y="64" width="10" height="258" fill="var(--surface)" stroke="var(--ink)" strokeWidth="1.5" />
+        <path className="xs-rise" d="M441 318 V70" stroke="var(--aqua)" strokeWidth="4" strokeLinecap="round" strokeDasharray="6 10" />
         <path d="M441 58 v-14" stroke="var(--aqua)" strokeWidth="3" strokeLinecap="round" />
-        <circle cx="441" cy="38" r="5" fill="var(--aqua)" />
+        <circle className="xs-bubble" cx="441" cy="38" r="5" fill="var(--aqua)" />
+        <circle className="xs-bubble xs-bubble-2" cx="441" cy="38" r="5" fill="var(--aqua)" />
         <rect x="418" y="64" width="46" height="32" fill="var(--ink)" />
-        <path d="M38 6 l-4 10 M58 2 l-4 10 M78 8 l-4 10 M98 4 l-4 10" stroke="var(--aqua)" strokeWidth="2" />
+        <g stroke="var(--aqua)" strokeWidth="2" strokeLinecap="round">
+          {[206, 228, 250, 272, 294].map((x, i) => (
+            <path key={x} className="xs-rain" style={{ animationDelay: `${i * 0.23}s` }} d={`M${x} 12 l-3 8`} />
+          ))}
+        </g>
         <g fontSize="11" fill="var(--ink)">
           <text x="12" y="22">Cleveland National Forest</text>
           <text x="12" y="36" fill="var(--muted)">~40 mi east</text>
